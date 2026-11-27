@@ -1,4 +1,4 @@
-/* Seller-specific styles (Strict 3-colour Mandi Register) */
+﻿/* Seller-specific styles (Strict 3-colour Mandi Register) */
 
 .overview-wrap {
   display: flex;
@@ -73,7 +73,7 @@
   line-height: 1.6;
 }
 
-/* Product form — large readable inputs for local producers */
+/* Product form â€” large readable inputs for local producers */
 .product-form {
   max-width: 760px;
   background: var(--color-white);
@@ -194,3 +194,62 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* -- GurVista Vaani — Add Product mode ---------------------- */
+.vaani-add-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.vaani-mode-tabs {
+  display: flex;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  width: fit-content;
+  background: var(--color-white);
+  flex-shrink: 0;
+}
+
+.vaani-mode-tab {
+  min-height: 44px;
+  padding: 10px 22px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-grey-dark);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 150ms, color 150ms;
+  white-space: nowrap;
+}
+
+.vaani-mode-tab + .vaani-mode-tab {
+  border-left: 1.5px solid var(--color-border-strong);
+}
+
+.vaani-mode-tab--active {
+  background: var(--color-green);
+  color: var(--color-ivory);
+}
+
+.vaani-mode-tab:hover:not(.vaani-mode-tab--active) {
+  background: var(--color-ivory-dark, #EEE9DA);
+  color: var(--color-green);
+}
+
+/* Prefill notice shown at top of ProductForm */
+.vaani-prefill-notice {
+  background: var(--color-ivory-dark, #EEE9DA);
+  border-left: 3px solid var(--color-brown);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-family: var(--font-devanagari), var(--font-body);
+  font-size: 14px;
+  color: var(--color-green);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+

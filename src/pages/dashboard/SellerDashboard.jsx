@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { VaaniRecorder } from '../../components/vaani';
 import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../context/useAuth';
 import { useLanguage } from '../../context/useLanguage';
@@ -121,7 +122,7 @@ function Overview({ products, orders, quotes, sellerName, onNavigate }) {
 }
 
 /* ── Product form (Add / Edit) ──────────────────────────── */
-function ProductForm({ initial, defaultLocation, onSave, onCancel, mode = 'add' }) {
+function ProductForm({ initial, defaultLocation, onSave, onCancel, mode = 'add', vaaniPrefilled = false }) {
   const { lang, t } = useLanguage();
   const [form, setForm] = useState(() => initial || makeEmptyForm(defaultLocation));
   const [errors, setErrors] = useState({});
@@ -175,6 +176,13 @@ function ProductForm({ initial, defaultLocation, onSave, onCancel, mode = 'add' 
 
   return (
     <form className="product-form auth-form" onSubmit={handleSubmit} noValidate>
+      {vaaniPrefilled && (
+        <div className="vaani-prefill-notice">
+          {lang === 'hi'
+            ? 'आवाज़ से जानकारी भरी गई है। कृपया जाँचें और ज़रूरी बदलाव करें।'
+            : 'Information extracted from voice. Please review and complete any missing fields.'}
+        </div>
+      )}
       <div className="auth-form-grid">
         <div className="auth-field">
           <label className="auth-label" htmlFor="pf-name">{t('dashboard.productName')}</label>
@@ -607,6 +615,8 @@ export default function SellerDashboard() {
   const { user, logout, refreshUser } = useAuth();
   const { lang, setLang, t } = useLanguage();
   const [activeSection, setActiveSection] = useState('overview');
+  const [addMode, setAddMode] = useState('manual'); // 'manual' | 'voice'
+  const [vaaniPrefill, setVaaniPrefill] = useState(null);
   const [orders, setOrders] = useState(() => getDemoOrders());
   const [editingProduct, setEditingProduct] = useState(null);
   const [flashMessage, setFlashMessage] = useState('');
@@ -673,6 +683,12 @@ export default function SellerDashboard() {
     setActiveSection(id);
     setEditingProduct(null);
     setFlashMessage('');
+    if (id !== 'add') { setAddMode('manual'); setVaaniPrefill(null); }
+  }
+
+  function handleVaaniTranscript(_transcript, extracted) {
+    setVaaniPrefill(extracted);
+    setAddMode('manual');
   }
 
   const displaySection = editingProduct && activeSection === 'edit' ? 'edit' : activeSection;
@@ -804,12 +820,48 @@ export default function SellerDashboard() {
             />
           )}
           {displaySection === 'add' && (
-            <ProductForm
-              defaultLocation={defaultLocation}
-              onSave={handleAddProduct}
-              onCancel={() => switchSection('products')}
-              mode="add"
-            />
+            <div className="vaani-add-wrap">
+              {/* Mode toggle tabs */}
+              <div className="vaani-mode-tabs" role="tablist">
+                <button
+                  role="tab"
+                  type="button"
+                  aria-selected={addMode === 'manual'}
+                  className={`vaani-mode-tab${addMode === 'manual' ? ' vaani-mode-tab--active' : ''}`}
+                  onClick={() => { setAddMode('manual'); setVaaniPrefill(null); }}
+                >
+                  {lang === 'hi' ? 'मैनुअल लिस्टिंग' : 'Manual Listing'}
+                </button>
+                <button
+                  role="tab"
+                  type="button"
+                  aria-selected={addMode === 'voice'}
+                  className={`vaani-mode-tab${addMode === 'voice' ? ' vaani-mode-tab--active' : ''}`}
+                  onClick={() => setAddMode('voice')}
+                >
+                  🎙 GurVista Vaani
+                </button>
+              </div>
+
+              {addMode === 'voice' && (
+                <VaaniRecorder
+                  lang={lang}
+                  onTranscriptReady={handleVaaniTranscript}
+                />
+              )}
+
+              {addMode === 'manual' && (
+                <ProductForm
+                  key={vaaniPrefill ? JSON.stringify(vaaniPrefill) : 'empty'}
+                  defaultLocation={defaultLocation}
+                  initial={vaaniPrefill ? { ...makeEmptyForm(defaultLocation), ...vaaniPrefill } : undefined}
+                  onSave={handleAddProduct}
+                  onCancel={() => { switchSection('products'); setVaaniPrefill(null); }}
+                  mode="add"
+                  vaaniPrefilled={Boolean(vaaniPrefill)}
+                />
+              )}
+            </div>
           )}
           {displaySection === 'edit' && editingProduct && (
             <ProductForm

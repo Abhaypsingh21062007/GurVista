@@ -1,0 +1,315 @@
+/* ══════════════════════════════════════════════════════════
+   VaaniRecorder.css — GurVista Vaani voice recording UI
+   Strict 3-colour palette: #F8F4E9 #293E2D #A66A32
+   Sharp borders (--radius-sm: 2px), no glassmorphism, no glow
+   ══════════════════════════════════════════════════════════ */
+
+/* Wrapper */
+.vaani-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: var(--color-ivory);
+  border: 1px solid var(--color-border-strong);
+  border-top: 3px solid var(--color-green);
+  border-radius: var(--radius-sm);
+  padding: 32px 32px 28px;
+  max-width: 720px;
+}
+
+/* Header */
+.vaani-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vaani-heading {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-green);
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.vaani-heading-devanagari {
+  font-family: var(--font-devanagari);
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--color-brown);
+}
+
+.vaani-subheading {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-green-dark);
+  margin: 0;
+}
+
+.vaani-hindi-label {
+  font-family: var(--font-devanagari);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-brown);
+  margin: 0;
+}
+
+/* Unsupported browser notice */
+.vaani-unsupported {
+  background: #fff8f0;
+  border: 1px solid var(--color-brown-tint);
+  border-left: 3px solid var(--color-brown);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--color-green-dark);
+  line-height: 1.6;
+}
+
+.vaani-unsupported p {
+  margin: 0;
+  font-family: var(--font-devanagari), var(--font-body);
+}
+
+/* Example sentence */
+.vaani-example {
+  background: #f0ede4;
+  border-left: 3px solid var(--color-brown);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vaani-example-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-brown);
+}
+
+.vaani-example-text {
+  font-family: var(--font-devanagari);
+  font-size: 16px;
+  color: var(--color-green);
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* Controls row */
+.vaani-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Main mic / stop button */
+.vaani-mic-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-ivory);
+  background: var(--color-green);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 150ms ease, opacity 150ms;
+  /* NO box-shadow glow, NO gradients */
+}
+
+.vaani-mic-btn:hover {
+  background: var(--color-green-dark);
+}
+
+.vaani-mic-btn:active {
+  opacity: 0.85;
+}
+
+.vaani-mic-btn--recording {
+  background: var(--color-brown);
+}
+
+.vaani-mic-btn--recording:hover {
+  background: var(--color-brown-dark);
+}
+
+/* Recording row */
+.vaani-recording-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.vaani-recording-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-brown);
+}
+
+/* Pulse indicator dot */
+.vaani-pulse {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-brown);
+  flex-shrink: 0;
+  animation: vaani-pulse-anim 1.1s ease-in-out infinite;
+}
+
+@keyframes vaani-pulse-anim {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+
+/* Retry button */
+.vaani-retry-btn {
+  min-height: 44px;
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-green);
+  background: transparent;
+  border: 1.5px solid var(--color-green);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 150ms, color 150ms;
+}
+
+.vaani-retry-btn:hover {
+  background: var(--color-green);
+  color: var(--color-ivory);
+}
+
+/* Live interim */
+.vaani-interim {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f0ede4;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--color-green-dark);
+  min-height: 36px;
+}
+
+.vaani-interim-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-green);
+  flex-shrink: 0;
+  margin-top: 4px;
+  animation: vaani-pulse-anim 0.8s ease-in-out infinite;
+}
+
+.vaani-interim-text {
+  font-family: var(--font-devanagari), var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-green);
+  word-break: break-word;
+}
+
+/* Error */
+.vaani-error {
+  font-family: var(--font-devanagari), var(--font-body);
+  font-size: 14px;
+  color: #9b3517;
+  margin: 0;
+  padding: 10px 14px;
+  background: #fff4f2;
+  border-left: 3px solid #9b3517;
+  border-radius: var(--radius-sm);
+  line-height: 1.6;
+}
+
+/* Transcript textarea wrapper */
+.vaani-transcript-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vaani-transcript-label {
+  font-weight: 600;
+}
+
+.vaani-transcript {
+  resize: vertical;
+  font-family: var(--font-devanagari), var(--font-body) !important;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* Extract row */
+.vaani-extract-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.vaani-extract-btn {
+  min-height: 48px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.vaani-extract-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Demo label */
+.vaani-demo-label {
+  font-size: 12px;
+  color: var(--color-grey-dark);
+  font-family: var(--font-body);
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .vaani-wrap {
+    padding: 20px 16px 20px;
+    gap: 18px;
+  }
+
+  .vaani-heading {
+    font-size: 22px;
+  }
+
+  .vaani-example-text {
+    font-size: 15px;
+  }
+
+  .vaani-mic-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .vaani-extract-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vaani-extract-btn {
+    width: 100%;
+  }
+}
