@@ -1,0 +1,153 @@
+/* ============================================================
+   ORDER TRACKER — 5-Stage Simulated Progress Bar
+   ============================================================ */
+
+.tracker {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.tracker__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-grey-light);
+}
+
+.tracker__sim-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ivory);
+  background-color: var(--color-green);
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+}
+
+.tracker__title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-green);
+}
+
+.tracker__title span {
+  color: var(--color-brown);
+}
+
+/* ── Steps Grid ─────────────────────────────────────────────── */
+.tracker__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .tracker__steps {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-sm);
+  }
+}
+
+.tracker__step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-sm);
+  border: 1px solid var(--color-grey-light);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-ivory);
+}
+
+@media (min-width: 768px) {
+  .tracker__step {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-md) var(--space-sm);
+  }
+}
+
+.tracker__step--done {
+  border-color: var(--color-green);
+  background-color: var(--color-white);
+}
+
+.tracker__step--active {
+  border-color: var(--color-brown);
+  border-width: 1.5px;
+  background-color: var(--color-white);
+}
+
+.tracker__step--pending {
+  opacity: 0.65;
+}
+
+.tracker__marker {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+  background-color: var(--color-ivory-dark);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-grey-dark);
+}
+
+.tracker__step--done .tracker__marker {
+  background-color: var(--color-green);
+  border-color: var(--color-green);
+  color: var(--color-ivory);
+}
+
+.tracker__step--active .tracker__marker {
+  background-color: var(--color-brown);
+  border-color: var(--color-brown);
+  color: var(--color-ivory);
+}
+
+.tracker__step-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tracker__step-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-green);
+  line-height: 1.3;
+}
+
+.tracker__step--active .tracker__step-label {
+  color: var(--color-brown);
+}
+
+.tracker__step-time {
+  font-size: 12px;
+  color: var(--color-grey-mid);
+  line-height: 1.3;
+}
+
+.tracker__note {
+  font-size: 13px;
+  color: var(--color-grey-mid);
+  max-width: none;
+  line-height: 1.5;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-grey-light);
+}
