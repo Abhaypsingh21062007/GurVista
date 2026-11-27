@@ -1,0 +1,106 @@
+.contact-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl) var(--space-3xl);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .contact-body {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+/* ── Form ───────────────────────────────────────────────────── */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 580px) {
+  .contact-form__row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-error {
+  background-color: var(--color-ivory-dark);
+  border: 1px solid var(--color-brown);
+  border-left: 3px solid var(--color-brown-dark);
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  color: var(--color-brown-dark);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contact-sent {
+  background-color: var(--color-ivory-dark);
+  border: 1px solid var(--color-green);
+  border-left: 3px solid var(--color-green);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  color: var(--color-green);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ── Info aside ─────────────────────────────────────────────── */
+.contact-info {
+  background-color: var(--color-green);
+  color: var(--color-ivory);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xl);
+}
+
+.contact-info__heading {
+  font-size: 22px;
+  color: var(--color-ivory);
+  margin-bottom: var(--space-xl);
+}
+
+.contact-info__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.contact-info__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(248, 244, 233, 0.14);
+}
+
+.contact-info__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.contact-info__label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-brown-tint);
+}
+
+.contact-info__value,
+.contact-info__link {
+  color: rgba(248, 244, 233, 0.90);
+  font-size: 15px;
+  line-height: 1.55;
+  transition: color var(--transition-fast);
+}
+
+.contact-info__link:hover {
+  color: var(--color-brown-tint);
+}

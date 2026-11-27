@@ -1,0 +1,883 @@
+/* ============================================================
+   HOME PAGE — Editorial Indian Agri-Commerce Architecture
+   Strict 3-colour palette: #F8F4E9 / #293E2D / #A66A32
+   ============================================================ */
+
+/* ── HERO — Broadsheet Masthead ─────────────────────────────── */
+.hero {
+  background-color: var(--color-ivory);
+  padding-block: var(--space-md) var(--space-2xl);
+  border-bottom: 1px solid var(--color-border-strong);
+}
+
+.hero__dateline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-lg);
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-grey-mid);
+}
+
+.hero__rates {
+  color: var(--color-brown-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .hero__grid {
+    grid-template-columns: 56fr 44fr;
+    gap: var(--space-2xl);
+  }
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.hero__eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-brown-dark);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  max-width: none;
+}
+
+.hero__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 1.5px;
+  background-color: var(--color-brown);
+  flex-shrink: 0;
+}
+
+.hero__heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-hero);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--color-green);
+}
+
+.hero__heading-em {
+  font-style: italic;
+  color: var(--color-brown);
+}
+
+.hero__hindi {
+  font-family: var(--font-devanagari);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--color-brown);
+  line-height: 1.45;
+  max-width: none;
+}
+
+.hero__desc {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.68;
+  color: var(--color-grey-dark);
+  max-width: 48ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-xs);
+}
+
+/* Framed Documentary Photo */
+.hero__visual {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin: 0;
+}
+
+.hero__frame {
+  border: 1px solid var(--color-border-strong);
+  background-color: var(--color-ivory-dark);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+}
+
+.hero__caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-md);
+  font-size: 12px;
+  color: var(--color-grey-mid);
+  line-height: 1.4;
+}
+
+.hero__photo-credit {
+  color: var(--color-grey-mid);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   1. TWO TRADES. ONE ORIGIN. (Clean Framed Dual Register)
+   ═══════════════════════════════════════════════════════════════ */
+.categories {
+  background-color: var(--color-ivory-dark);
+  padding-block: var(--space-2xl);
+  border-bottom: 1px solid var(--color-border-strong);
+}
+
+.categories__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 760px) {
+  .categories__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.categories__panel {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border-strong);
+}
+
+.categories__panel--jaggery {
+  background-color: var(--color-ivory);
+  color: var(--color-green);
+}
+
+.categories__panel--bagasse {
+  background-color: var(--color-green);
+  color: var(--color-ivory);
+  border-color: var(--color-green);
+}
+
+.categories__img-frame {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--color-ivory-dark);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.categories__panel--bagasse .categories__img-frame {
+  border-bottom-color: rgba(248, 244, 233, 0.16);
+}
+
+.categories__panel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.categories__panel-body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: flex-start;
+  flex: 1;
+}
+
+.categories__panel-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-sm) var(--space-md);
+}
+
+.categories__panel-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brown-dark);
+}
+
+.categories__panel--bagasse .categories__panel-label {
+  color: var(--color-brown-tint);
+}
+
+.categories__panel-label-alt {
+  font-size: 13px;
+  color: var(--color-grey-mid);
+}
+
+.categories__panel--bagasse .categories__panel-label-alt {
+  color: rgba(248, 244, 233, 0.72);
+}
+
+.categories__panel-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(21px, 2.2vw, 26px);
+  font-weight: 500;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.categories__panel-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-grey-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.categories__panel--bagasse .categories__panel-desc {
+  color: rgba(248, 244, 233, 0.84);
+}
+
+.categories__panel-body .btn {
+  margin-top: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   2. EXPLORE OUR PRODUCTS — Spotlight + Ruled 2x2 Trading Sheet
+   ═══════════════════════════════════════════════════════════════ */
+.sec-products {
+  padding-block: var(--space-2xl) var(--space-3xl);
+}
+
+.sec-products__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-xl);
+  border-bottom: 1.5px solid var(--color-green);
+}
+
+.sec-products__header .eyebrow {
+  margin-bottom: var(--space-xs);
+}
+
+.sec-products__header h2 {
+  font-size: var(--text-h2);
+  color: var(--color-green);
+}
+
+.sec-products__cta-note {
+  font-size: 14px;
+  color: var(--color-grey-mid);
+  font-style: italic;
+}
+
+/* Spotlight split */
+.product-spotlight {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-strong);
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 760px) {
+  .product-spotlight {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+.product-spotlight__media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--color-ivory-dark);
+}
+
+@media (min-width: 760px) {
+  .product-spotlight__media {
+    aspect-ratio: auto;
+    min-height: 290px;
+    border-right: 1px solid var(--color-border);
+  }
+}
+
+.product-spotlight__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-spotlight__body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+@media (min-width: 900px) {
+  .product-spotlight__body {
+    padding: var(--space-xl);
+  }
+}
+
+.product-spotlight__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.product-spotlight__titles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-sm) var(--space-md);
+}
+
+.product-spotlight__name {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 2.5vw, 30px);
+  font-weight: 500;
+  color: var(--color-green);
+}
+
+.product-spotlight__name-alt {
+  font-size: 15px;
+  color: var(--color-grey-mid);
+}
+
+.product-spotlight__desc {
+  font-size: 16px;
+  color: var(--color-grey-dark);
+  line-height: 1.65;
+}
+
+.product-spotlight__foot {
+  margin-top: auto;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.product-price {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-brown-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.product-unit {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-grey-mid);
+  margin-left: 3px;
+}
+
+.product-min {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-grey-mid);
+}
+
+/* Ruled 2x2 Trading Sheet */
+.products-sheet {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--color-border-strong);
+  border-left: 1px solid var(--color-border-strong);
+  background-color: var(--color-white);
+}
+
+@media (min-width: 760px) {
+  .products-sheet {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.product-row {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border-right: 1px solid var(--color-border-strong);
+  border-bottom: 1px solid var(--color-border-strong);
+  align-items: start;
+}
+
+@media (max-width: 440px) {
+  .product-row {
+    grid-template-columns: 88px 1fr;
+  }
+}
+
+.product-row__thumb-wrap {
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-ivory-dark);
+}
+
+.product-row__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-row__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.product-row__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.product-row__price {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-brown-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+.product-row__name {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-green);
+  line-height: 1.25;
+}
+
+.product-row__name a:hover {
+  color: var(--color-brown-dark);
+}
+
+.product-row__name-alt {
+  display: block;
+  font-size: 13px;
+  color: var(--color-grey-mid);
+}
+
+.product-row__desc {
+  font-size: 14px;
+  color: var(--color-grey-dark);
+  line-height: 1.5;
+}
+
+.product-row__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  transition: color var(--transition-fast);
+  width: fit-content;
+}
+
+.product-row__link:hover {
+  color: var(--color-green);
+}
+
+.sec-products__cta {
+  margin-top: var(--space-xl);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   3. THE STORY OF MUZAFFARNAGAR
+   ═══════════════════════════════════════════════════════════════ */
+.sec-story {
+  background-color: var(--color-ivory-dark);
+  padding-block: var(--space-2xl);
+  border-top: 1px solid var(--color-border-strong);
+  border-bottom: 1px solid var(--color-border-strong);
+}
+
+.sec-story__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 860px) {
+  .sec-story__inner {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-2xl);
+  }
+}
+
+.sec-story__visual {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.sec-story__img-wrap {
+  border: 1px solid var(--color-border-strong);
+  background-color: var(--color-ivory);
+  overflow: hidden;
+}
+
+.sec-story__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.sec-story__caption {
+  font-size: 12px;
+  color: var(--color-grey-mid);
+  line-height: 1.45;
+}
+
+.sec-story__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sec-story__text p {
+  font-size: 16px;
+  color: var(--color-grey-dark);
+  line-height: 1.72;
+}
+
+.sec-story__quote {
+  margin: var(--space-xs) 0;
+  padding: var(--space-md) 0;
+  border-top: 1.5px solid var(--color-brown);
+  border-bottom: 1.5px solid var(--color-brown);
+  font-family: var(--font-heading);
+  font-size: clamp(17px, 1.4vw, 20px);
+  font-style: italic;
+  color: var(--color-green);
+  line-height: 1.55;
+}
+
+.sec-story__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-top: var(--space-sm);
+}
+
+.sec-story__source-text {
+  font-size: 13px;
+  color: var(--color-grey-mid);
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   4. WHY GURVISTA — 2x2 Architectural Ledger
+   ═══════════════════════════════════════════════════════════════ */
+.sec-why {
+  padding-block: var(--space-2xl);
+}
+
+.sec-why__header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  padding-bottom: var(--space-xl);
+}
+
+@media (min-width: 820px) {
+  .sec-why__header {
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: var(--space-2xl);
+  }
+}
+
+.sec-why__header .eyebrow {
+  margin-bottom: var(--space-xs);
+}
+
+.sec-why__header h2 {
+  color: var(--color-ivory);
+  font-size: var(--text-h2);
+}
+
+.sec-why__sub {
+  font-size: 16px;
+  color: rgba(248, 244, 233, 0.84);
+  line-height: 1.68;
+}
+
+.sec-why__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid rgba(248, 244, 233, 0.22);
+  border-left: 1px solid rgba(248, 244, 233, 0.22);
+}
+
+@media (min-width: 680px) {
+  .sec-why__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.sec-why__cell {
+  padding: var(--space-lg);
+  border-right: 1px solid rgba(248, 244, 233, 0.22);
+  border-bottom: 1px solid rgba(248, 244, 233, 0.22);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.sec-why__item-num {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-brown-tint);
+  letter-spacing: 0.08em;
+}
+
+.sec-why__item-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-ivory);
+}
+
+.sec-why__item-desc {
+  font-size: 15px;
+  color: rgba(248, 244, 233, 0.82);
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   5. HOW IT WORKS — Sequential Trade Process
+   ═══════════════════════════════════════════════════════════════ */
+.sec-how {
+  padding-block: var(--space-2xl);
+}
+
+.sec-how__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.sec-how__header .eyebrow {
+  margin-bottom: var(--space-xs);
+}
+
+.sec-how__header h2 {
+  font-size: var(--text-h2);
+  color: var(--color-green);
+}
+
+.sec-how__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.sec-how__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--color-border-strong);
+  border-left: 1px solid var(--color-border-strong);
+  background-color: var(--color-white);
+}
+
+@media (min-width: 640px) {
+  .sec-how__steps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sec-how__steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.how-step {
+  padding: var(--space-lg);
+  border-right: 1px solid var(--color-border-strong);
+  border-bottom: 1px solid var(--color-border-strong);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.how-step__top {
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.how-step__num {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-brown-dark);
+  letter-spacing: 0.06em;
+}
+
+.how-step__title {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--color-green);
+}
+
+.how-step__desc {
+  font-size: 14px;
+  color: var(--color-grey-dark);
+  line-height: 1.62;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   6. BECOME A SELLER — Producer Prospectus
+   ═══════════════════════════════════════════════════════════════ */
+.sec-seller {
+  padding-block: var(--space-2xl);
+  border-top: 1px solid rgba(248, 244, 233, 0.14);
+}
+
+.sec-seller__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .sec-seller__inner {
+    grid-template-columns: 7fr 5fr;
+    gap: var(--space-2xl);
+  }
+}
+
+.sec-seller__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.sec-seller__text h2 {
+  color: var(--color-ivory);
+  font-size: var(--text-h2);
+}
+
+.sec-seller__desc {
+  font-size: 16px;
+  color: rgba(248, 244, 233, 0.86);
+  line-height: 1.7;
+  max-width: 52ch;
+}
+
+.sec-seller__terms {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid rgba(248, 244, 233, 0.22);
+  border-bottom: 1px solid rgba(248, 244, 233, 0.22);
+  margin-block: var(--space-xs);
+}
+
+@media (min-width: 600px) {
+  .sec-seller__terms {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.sec-seller__term {
+  padding: var(--space-md) var(--space-md) var(--space-md) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (min-width: 600px) {
+  .sec-seller__term + .sec-seller__term {
+    padding-left: var(--space-md);
+    border-left: 1px solid rgba(248, 244, 233, 0.18);
+  }
+}
+
+.sec-seller__term strong {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-brown-tint);
+}
+
+.sec-seller__term span {
+  font-size: 13px;
+  color: rgba(248, 244, 233, 0.82);
+  line-height: 1.45;
+}
+
+.sec-seller__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-xs);
+}
+
+.sec-seller__visual {
+  border: 1px solid rgba(248, 244, 233, 0.22);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.sec-seller__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
